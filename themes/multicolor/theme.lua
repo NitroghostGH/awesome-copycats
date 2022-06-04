@@ -98,7 +98,7 @@ os.setlocale(os.getenv("LANG")) -- to localize the clock
 local clockicon = wibox.widget.imagebox(theme.widget_clock)
 local mytextclock = wibox.widget.textclock(markup("#7788af", "%A %d %B ") .. markup("#ab7367", ">") .. markup("#de5e1e", " %H:%M "))
 mytextclock.font = theme.font
-
+--[[
 -- Calendar
 theme.cal = lain.widget.cal({
     attach_to = { mytextclock },
@@ -108,6 +108,7 @@ theme.cal = lain.widget.cal({
         bg   = theme.bg_normal
     }
 })
+--]]
 
 -- Weather
 --[[ to be set before use
@@ -157,7 +158,7 @@ theme.mail = lain.widget.imap({
     end
 })
 --]]
-
+--[[
 -- CPU
 local cpuicon = wibox.widget.imagebox(theme.widget_cpu)
 local cpu = lain.widget.cpu({
@@ -165,7 +166,7 @@ local cpu = lain.widget.cpu({
         widget:set_markup(markup.fontfg(theme.font, "#e33a6e", cpu_now.usage .. "% "))
     end
 })
-
+]]
 -- Coretemp
 local tempicon = wibox.widget.imagebox(theme.widget_temp)
 local temp = lain.widget.temp({
