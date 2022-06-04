@@ -40,7 +40,7 @@ theme.menu_bg_normal                            = "#050505dd"
 theme.menu_bg_focus                             = "#050505dd"
 theme.widget_temp                               = theme.confdir .. "/icons/temp.png"
 theme.widget_uptime                             = theme.confdir .. "/icons/ac.png"
-theme.widget_cpu                                = theme.confdir .. "/icons/cpu.png"
+--theme.widget_cpu                                = theme.confdir .. "/icons/cpu.png"
 theme.widget_weather                            = theme.confdir .. "/icons/dish.png"
 theme.widget_fs                                 = theme.confdir .. "/icons/fs.png"
 theme.widget_mem                                = theme.confdir .. "/icons/mem.png"
@@ -316,8 +316,6 @@ function theme.at_screen_connect(s)
             theme.volume.widget,
             memicon,
             memory.widget,
-            cpuicon,
-            cpu.widget,
             --fsicon,
             --theme.fs.widget,
             --weathericon,
