@@ -1,0 +1,8 @@
+{
+	"prettier.configPath": "",
+	"prettier.jsxBracketSameLine": false,
+	"prettier.useTabs": true,
+	"prettier.ignorePath": "",
+	"prettier.documentSelectors": ["**/*.{json,CSS,html,lua}"],
+	"window.autoDetectColorScheme": false
+}
