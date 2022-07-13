@@ -1,4 +1,4 @@
-rc.lua
+
 rc.lua.save
 theme-personal.lua
 .luacheckrc
@@ -18,3 +18,5 @@ themes/multicolor/walltest/test.jpg
 themes/multicolor/walltest/test.png
 themes/multicolor/walltest/test.txt
 .gitignore
+themes/multicolor/Traffic Simulation Software
+
