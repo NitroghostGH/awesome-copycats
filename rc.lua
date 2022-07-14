@@ -113,7 +113,7 @@ local vi_focus     = false -- vi-like client focus https://github.com/lcpz/aweso
 local cycle_prev   = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
 local editor       = os.getenv("EDITOR") or "code"
 local browser      = "chromium"
-
+local pm           = "1password"
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" , "6", "7","8","9"}
 awful.layout.layouts = {
@@ -402,6 +402,8 @@ globalkeys = mytable.join(
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
+    awful.key({ modkey, "Shift"   }, "space", function () awful.spawn(pm) end,
+              {description = "Start Password Manager", group = "awesome"}),
 
     awful.key({ modkey, altkey    }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
