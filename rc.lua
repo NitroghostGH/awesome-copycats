@@ -72,9 +72,8 @@ local function run_once(cmd_arr)
 end
 run_once({  }) -- comma-separated entries
 ]] -- this is the old run once code
-awful.spawn.easy_async_with_shell("kitty -htop")
 
-awful.spawn.easy_async_with_shell("compton")
+awful.spawn.easy_async_with_shell("picom")
 --awful.spawn.easy_async_with_shell("1password")
 
 
@@ -108,7 +107,7 @@ local themes = {
 local chosen_theme = themes[5]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
-local terminal     = "kitty"
+local terminal     = "alacritty"
 local vi_focus     = false -- vi-like client focus https://github.com/lcpz/awesome-copycats/issues/275
 local cycle_prev   = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
 local editor       = os.getenv("EDITOR") or "code"
@@ -120,25 +119,26 @@ awful.layout.layouts = {
     --awful.layout.suit.floating,
     awful.layout.suit.spiral,
     awful.layout.suit.tile,
-    --awful.layout.suit.tile.left,
-    --awful.layout.suit.tile.bottom,
-    --awful.layout.suit.tile.top,
+    awful.layout.suit.tile.left,
+    awful.layout.suit.tile.bottom,
+    awful.layout.suit.tile.top,
     awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
     awful.layout.suit.spiral.dwindle,
-    --awful.layout.suit.max,
-    --awful.layout.suit.max.fullscreen,
+    awful.layout.suit.max,
+    awful.layout.suit.max.fullscreen,
+
     --awful.layout.suit.magnifier,
     --awful.layout.suit.corner.nw,
     --awful.layout.suit.corner.ne,
     --awful.layout.suit.corner.sw,
     --awful.layout.suit.corner.se,
-    --lain.layout.cascade,
-    --lain.layout.cascade.tile,
+    lain.layout.cascade,
+    lain.layout.cascade.tile,
     --lain.layout.centerwork,
-    --lain.layout.centerwork.horizontal,
-    --lain.layout.termfair,
-    --lain.layout.termfair.center
+    lain.layout.centerwork.horizontal,
+    lain.layout.termfair,
+    lain.layout.termfair.center
 }
 
 lain.layout.termfair.nmaster           = 3
