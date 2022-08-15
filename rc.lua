@@ -1,3 +1,4 @@
+
 --[[
 
      Awesome WM configuration template
@@ -402,7 +403,7 @@ globalkeys = mytable.join(
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
-    awful.key({ modkey, "Shift"   }, "space", function () awful.spawn(pm) end,
+    awful.key({ modkey, "Shift" , "Control"   }, "space", function () awful.spawn(pm) end,
               {description = "Start Password Manager", group = "awesome"}),
 
     awful.key({ modkey, altkey    }, "l",     function () awful.tag.incmwfact( 0.05)          end,
