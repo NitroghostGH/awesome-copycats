@@ -1,4 +1,3 @@
-
 --[[
 
      Awesome WM configuration template
@@ -74,7 +73,8 @@ end
 run_once({  }) -- comma-separated entries
 ]] -- this is the old run once code
 
-awful.spawn.easy_async_with_shell("picom")
+awful.spawn.easy_async_with_shell("picom --experimental-backends")
+awful.spawn.easy_async_with_shell("nitrogen --restore &")
 --awful.spawn.easy_async_with_shell("1password")
 
 
@@ -112,7 +112,7 @@ local terminal     = "alacritty"
 local vi_focus     = false -- vi-like client focus https://github.com/lcpz/awesome-copycats/issues/275
 local cycle_prev   = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
 local editor       = os.getenv("EDITOR") or "code"
-local browser      = "chromium"
+local browser      = "firefox"
 local pm           = "1password"
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" , "6", "7","8","9"}
@@ -181,6 +181,7 @@ awful.util.tasklist_buttons = mytable.join(
 )
 
 beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme))
+
 
 
 -- {{{ Menu
@@ -403,7 +404,7 @@ globalkeys = mytable.join(
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
-    awful.key({ modkey, "Shift" , "Control"   }, "space", function () awful.spawn(pm) end,
+    awful.key({ modkey, "Shift" , "Control"  }, "space", function () awful.spawn(pm) end,
               {description = "Start Password Manager", group = "awesome"}),
 
     awful.key({ modkey, altkey    }, "l",     function () awful.tag.incmwfact( 0.05)          end,
@@ -431,9 +432,6 @@ globalkeys = mytable.join(
         end
     end, {description = "restore minimized", group = "client"}),
 
-    -- Dropdown application
-    awful.key({ modkey, }, "z", function () awful.screen.focused().quake:toggle() end,
-              {description = "dropdown application", group = "launcher"}),
 
     -- Widgets popups
     awful.key({ altkey, }, "c", function () if beautiful.cal then beautiful.cal.show(7) end end,
@@ -821,3 +819,4 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 -- }}}
+
