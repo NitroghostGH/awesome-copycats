@@ -74,7 +74,6 @@ run_once({  }) -- comma-separated entries
 ]] -- this is the old run once code
 
 awful.spawn.easy_async_with_shell("picom --experimental-backends")
-awful.spawn.easy_async_with_shell("nitrogen --restore &")
 --awful.spawn.easy_async_with_shell("1password")
 
 
@@ -820,3 +819,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- }}}
 
+awful.spawn.easy_async_with_shell("nitrogen --restore")
