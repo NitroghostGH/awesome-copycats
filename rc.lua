@@ -113,6 +113,7 @@ local cycle_prev   = true  -- cycle with only the previously focused client or a
 local editor       = os.getenv("EDITOR") or "code"
 local browser      = "firefox"
 local pm           = "1password"
+local menu         = "dmenu_run"
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" , "6", "7","8","9"}
 awful.layout.layouts = {
@@ -200,13 +201,9 @@ awful.util.mymainmenu = freedesktop.menu.build {
         -- other triads can be put here
     },
     after = {
-        { "Open terminal", terminal },
-        -- other triads can be put here
-    }
-}
+        { "Open terminal", terminal },}}
+        -- other triads can be put here    -- Prompt
 
--- Hide the menu when the mouse leaves it
---[[
 awful.util.mymainmenu.wibox:connect_signal("mouse::leave", function()
     if not awful.util.mymainmenu.active_child or
        (awful.util.mymainmenu.wibox ~= mouse.current_wibox and
@@ -405,6 +402,13 @@ globalkeys = mytable.join(
               {description = "quit awesome", group = "awesome"}),
     awful.key({ modkey, "Shift" , "Control"  }, "space", function () awful.spawn(pm) end,
               {description = "Start Password Manager", group = "awesome"}),
+    -- -- Prompt
+    -- awful.key({ modkey }, "r", function () awful.screen.focused().mypromptbox:run() end,
+    --           {description = "run prompt", group = "launcher"}),
+
+    awful.key({modkey},"r", function () awful.spawn(menu) end,
+            {description = "launch menu prompt",group = "launcher"}),
+
 
     awful.key({ modkey, altkey    }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
@@ -552,9 +556,6 @@ globalkeys = mytable.join(
         {description = "show rofi", group = "launcher"}),
     --]]
 
-    -- Prompt
-    awful.key({ modkey }, "r", function () awful.screen.focused().mypromptbox:run() end,
-              {description = "run prompt", group = "launcher"}),
 
     awful.key({ modkey }, "x",
               function ()
